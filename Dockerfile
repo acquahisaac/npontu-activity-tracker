@@ -2,7 +2,8 @@ FROM richarvey/nginx-php-fpm:3.1.6
 
 COPY . .
 
-# Install PHP dependencies at build time (not runtime) to guarantee vendor/ exists
+RUN chmod +x /var/www/html/00-laravel-deploy.sh
+
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 # Image config
